@@ -54,6 +54,25 @@ for (var i = 0; 1 < choicesLenth; i++) {
     questionListEl.append(questionListItem);
 }
 
+function checkAnswer(event) {
+    clearInterval(intervalId);
+    var target = event.target;
+    
+    if (target.matches("li")) {
+        var selectedChoice = event.target.textContent;
+        if (selectedChoice === questions[questionIndex].answer) {
+            correctCount++;
+            questionResultEl.textContent = "Correct!";
+        }
+    else {
+        correctCount--;
+        time -= 2;
+        questionResultEl.textContent = "Incorrect.";
+    }
+}
+    setTimeout(nextQuestion, 2000);
+}
+
 
 
 function endQuiz() {
