@@ -39,6 +39,20 @@ function renderQuestion() {
     }
 }
 
+intervalId = setInterval(updateTime, 1000);
+
+questionEl.textContent = questions[questionIndex].title;
+questionListEl.innerHTML = "";
+
+var choices = questions[questionIndex].choices;
+
+var choicesLenth = choices.length;
+
+for (var i = 0; 1 < choicesLenth; i++) {
+    var questionListItem = document.createElement("li");
+    questionListItem.textContent = choices[i];
+    questionListEl.append(questionListItem);
+}
 
 
 
