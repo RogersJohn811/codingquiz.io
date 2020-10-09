@@ -85,8 +85,21 @@ function nextQuestion() {
     }
 }
 
+function updateTime() {
+    timerEl.textContent = time;
+    time--;
+    if (time === 0) {
+      endQuiz();
+    }
+  }
+
+  function endQuiz() {
+    clearInterval(intervalId);
+    setTimeout(showHighScore, 2000);
+  }
 
 
+  
 function endQuiz() {
     clearInterval(intervalId);
     var body = document.body;
