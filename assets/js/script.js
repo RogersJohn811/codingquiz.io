@@ -98,8 +98,36 @@ function updateTime() {
     setTimeout(showHighScore, 2000);
   }
 
-
+  function showHighScore() {
+    document.body.textContent = "";
   
+    var div = document.createElement("div");
+    div.setAttribute("class", "container highscores-display");
+    document.body.append(div);
+  
+  
+    var heading = document.createElement("h2");
+    heading.textContent = "Add your name to the leaderboard!";
+    div.append(heading);
+  
+    inputBox = document.createElement("input");
+    inputBox.setAttribute("id", "nameBox");
+    div.append(inputBox);
+  
+  
+    btnSubmit = document.createElement("button");
+    btnSubmit.setAttribute("type", "submit");
+    btnSubmit.setAttribute("class", "customBtn");
+    btnSubmit.textContent = "Submit Name";
+    div.append(btnSubmit);
+  
+    btnSubmit.addEventListener("click", function (event) {
+      event.preventDefault();
+      name = inputBox.value;
+      toHighScore();
+    });
+  }
+
 function endQuiz() {
     clearInterval(intervalId);
     var body = document.body;
