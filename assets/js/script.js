@@ -73,6 +73,18 @@ function checkAnswer(event) {
     setTimeout(nextQuestion, 2000);
 }
 
+function nextQuestion() {
+    questionResultEl.textContent = "";
+    questionIndex++;
+
+    if (questionIndex === questions.length) {
+        timer = 0;
+        endQuiz();
+    } else {
+        renderQuestion();
+    }
+}
+
 
 
 function endQuiz() {
