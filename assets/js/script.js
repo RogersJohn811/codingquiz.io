@@ -128,6 +128,32 @@ function updateTime() {
     });
   }
 
+  function toHighScore() {
+    clearInterval(intervalId);
+  
+    document.body.textContent = "";
+  
+    var high_score = localStorage.getItem("scores");
+  
+    if (!high_score) {
+      high_score = [];
+    } else {
+      high_score = JSON.parse(high_score);
+    }
+  
+    var user = {
+      name: name,
+      score: correctCount
+    }
+  
+    high_score.push(user);
+    localStorage.setItem("scores", JSON.stringify(high_score))
+    high_score.sort(function (a, b) {
+      return b.score - a.score;
+    });
+
+    
+
 function endQuiz() {
     clearInterval(intervalId);
     var body = document.body;
