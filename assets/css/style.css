@@ -1,11 +1,12 @@
 html {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Creepster', sans-serif;
 }
 
 h1,
 h2,
-h3 {
-    font-family: 'Times New Roman', sans-serif;
+h3,
+p {
+    font-family: 'Creepster', sans-serif;
 }
 
 nav li, 
@@ -24,6 +25,7 @@ nav li a {
     display: none;
     margin: 40px auto;
     width: 80vw;
+    font-family: 'Creepster', sans-serif;
 }
 
 #question {
@@ -54,14 +56,15 @@ nav li a {
 .customBtn {
     border: none;
     background-color: orange;
-    color: white;
+    color: black;
     padding: 5px;
     border-radius:10px;
+    font-family: 'Creepster', sans-serif;
 }
 
 #question-result {
-    border-top: 1px solid grey;
-    color: grey;
+    border-top: 1px solid black;
+    color: black;
     font-style: italic;
 }
 
@@ -70,6 +73,11 @@ nav li a {
     border-bottom: 1px solid black;
     margin-right: 10px;
 }
+
+.nav-link {
+    font-family: 'Creepster', sans-serif;
+}
+
 .highscores-display {
     margin: 40px auto;
 }

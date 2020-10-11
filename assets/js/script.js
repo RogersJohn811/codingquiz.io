@@ -11,19 +11,19 @@ var questions = [
     answer: "parentheses",
   },
   {
-    question: "Commonly used data types DO NOT include:",
-    choices: ["strings", "booleans", "alerts", "numbers"],
-    answer: "alerts",
+    question: "Inside which HTML element do we put the JavaScript?:",
+    choices: ["javascript", "script", "js", "scripting"],
+    answer: "script",
   },
   {
-    question: "Commonly used data types DO NOT include:",
-    choices: ["strings", "booleans", "alerts", "numbers"],
-    answer: "alerts",
+    question: "Which event occurs when the user clicks on an HTML element?:",
+    choices: ["onchange", "onmouseclick", "onmouseover", "onclick"],
+    answer: "onclick",
   },
   {
-    question: "Commonly used data types DO NOT include:",
-    choices: ["strings", "booleans", "alerts", "numbers"],
-    answer: "alerts",
+    question: "Which operator is used to assign a value to a variable?:",
+    choices: ["x", "=", "-", "*"],
+    answer: "=",
   },
 ];
 
@@ -38,7 +38,7 @@ var mainQuestionArea = document.querySelector(".main-question-area");
 
 var questionIndex = 0;
 var correctCount = 0;
-var time = 10;
+var time = 60;
 var intervalId;
 
 var name;
@@ -48,29 +48,33 @@ startBtn.addEventListener("click", startGame);
 function startGame(){
   document.querySelector(".welcome-area").style.display="none";
   document.querySelector(".main-question-area").style.display="block";
+  timerID = setInterval(updateTime, 1000);
+  timerEl.textContent = time;
   renderQuestion();
 }
 
-function renderQuestion() {
-
-  if (time == 0) {
-    updateTime();
-    return;
+function updateTime() {
+  time--;
+  timerEl.textContent = time;
+  if (time <= 0) {
+    endQuiz();
   }
+}
 
-  intervalId = setInterval(updateTime, 1000);
+function renderQuestion() {
+  var currentQuestion = questions[questionIndex];
+  questionEl.textContent = currentQuestion.question;
 
-  questionEl.textContent = questions[questionIndex].question;
+  optionListEl.innerHTML = "";
   questionResultEl.innerHTML = "";
 
-  var choices = questions[questionIndex].choices;
-  var choicesLenth = choices.length;
+  var choices = currentQuestion.choices;
+  var choicesLength = choices.length;
 
-  for (var i = 0; i < choicesLenth; i++) {
+  for (var i = 0; i < choicesLength; i++) {
     var questionListItem = document.createElement("li");
     questionListItem.textContent = choices[i];
     optionListEl.append(questionListItem);
-  
   }
 }
 
@@ -103,14 +107,6 @@ function nextQuestion() {
     endQuiz();
   } else {
     renderQuestion();
-  }
-}
-
-function updateTime() {
-  time--;
-  timerEl.textContent = time;
-  if (time <= 0) {
-    endQuiz();
   }
 }
 
