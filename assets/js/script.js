@@ -38,7 +38,7 @@ var mainQuestionArea = document.querySelector(".main-question-area");
 
 var questionIndex = 0;
 var correctCount = 0;
-var time = 60;
+var time = 30;
 var intervalId;
 
 var name;
